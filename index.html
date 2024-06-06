@@ -41,18 +41,55 @@
             text-align: center;
             margin-top: 20px;
             font-size: 24px;
+        }
+        .footer {
+            background-color: #ffffff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer .left, .footer .center, .footer .right {
+            flex: 1;
+            padding: 20px;
+        }
+        .footer .left img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+        .footer .center, .footer .right {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer a {
+            color: #003366;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social {
+            margin-top: 10px;
+        }
+        .footer .social img {
+            max-width: 20px;
+            margin-right: 10px;
+        }
+        .footer .bottom {
+            text-align: center;
+            width: 100%;
+            padding: 10px 0;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #888;
         }  
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 <body class="bg-gray-100">
-    <div class="bg-gray-200 text-4xl text-center py-8">
-        <em style="color: #003366;">mis</em><span style="color: #336699;">Contadores<strong>.us</strong></span>
-    </div>
     <div id="navbar-container"></div>
-    <div class="navbar">
-        <a href="pricing.html">Precios</a>
-        <a href="contact.html">Contacto</a>
-    </div>
     <!-- Header Section -->
     <header class="bg-custom-blue text-white py-20">
         <div class="container mx-auto text-center">
@@ -203,5 +240,15 @@
             </div>
         </div>
     </section>
+    <div id="footer-container"></div>
+    <script>
+        async function includeHTML() {
+            let navbar = await fetch('navbar.html');
+            let footer = await fetch('footer.html');
+            document.getElementById('navbar-container').innerHTML = await navbar.text();
+            document.getElementById('footer-container').innerHTML = await footer.text();
+        }
+        includeHTML();
+    </script>
 </body>
 </html>

@@ -6,7 +6,89 @@
     <title>Pricing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<style>
+    body {
+           /* font-family: 'Roboto', sans-serif; */
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+  .bg-custom-blue {
+   background-color: #336699;
+   }
+       .logo {
+           font-weight: bold;
+       }
+       .navbar {
+           display: flex;
+           justify-content: flex-end;
+           background-color: #f8f8f8;
+           padding: 10px 20px;
+       }
+       .navbar a {
+           color: #003366;
+           text-decoration: none;
+           margin-left: 20px;
+           font-size: 18px;
+       }
+       .content {
+           background-color: #e2e8f0;
+           text-align: center;
+           padding: 40px 0;
+           font-size: 36px;
+       }
+       .tagline {
+           text-align: center;
+           margin-top: 20px;
+           font-size: 24px;
+       }
+       .footer {
+           background-color: #ffffff;
+           padding: 20px 0;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           flex-wrap: wrap;
+       }
+       .footer .left, .footer .center, .footer .right {
+           flex: 1;
+           padding: 20px;
+       }
+       .footer .left img {
+           max-width: 50px;
+           margin-right: 10px;
+       }
+       .footer .center, .footer .right {
+           display: flex;
+           flex-direction: column;
+       }
+       .footer a {
+           color: #003366;
+           text-decoration: none;
+           margin-bottom: 10px;
+           font-size: 14px;
+       }
+       .footer a:hover {
+           text-decoration: underline;
+       }
+       .footer .social {
+           margin-top: 10px;
+       }
+       .footer .social img {
+           max-width: 20px;
+           margin-right: 10px;
+       }
+       .footer .bottom {
+           text-align: center;
+           width: 100%;
+           padding: 10px 0;
+           border-top: 1px solid #e2e8f0;
+           font-size: 12px;
+           color: #888;
+       }  
+</style>
 <body class="bg-gray-100">
+    <div id="navbar-container"></div>
     <div class="container mx-auto p-8">
         <h1 class="text-4xl font-bold text-center mb-6">Precios simples y directos para todo lo que tu negocio necesita.</h1>
         <p class="text-center mb-12">Sin contratos a largo plazo ni cargos por cancelación, con personal que habla español para atender tus necesidades.</p>
@@ -105,5 +187,15 @@
             </div>
         </div>
     </div>
+    <div id="footer-container"></div>
+    <script>
+        async function includeHTML() {
+            let navbar = await fetch('navbar.html');
+            let footer = await fetch('footer.html');
+            document.getElementById('navbar-container').innerHTML = await navbar.text();
+            document.getElementById('footer-container').innerHTML = await footer.text();
+        }
+        includeHTML();
+    </script>
 </body>
 </html>
