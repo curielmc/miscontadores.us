@@ -6,12 +6,58 @@
     <title>Landing Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+<style>
+     body {
+            /* font-family: 'Roboto', sans-serif; */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+   .bg-custom-blue {
+    background-color: #336699;
+    }
+        .logo {
+            font-weight: bold;
+        }
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #f8f8f8;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            color: #003366;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+        .content {
+            background-color: #e2e8f0;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 36px;
+        }
+        .tagline {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }  
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 <body class="bg-gray-100">
+    <div class="bg-gray-200 text-4xl text-center py-8">
+        <em style="color: #003366;">mis</em><span style="color: #336699;">Contadores<strong>.us</strong></span>
+    </div>
+    <div id="navbar-container"></div>
+    <div class="navbar">
+        <a href="pricing.html">Precios</a>
+        <a href="contact.html">Contacto</a>
+    </div>
     <!-- Header Section -->
-    <header class="bg-blue-900 text-white py-20">
+    <header class="bg-custom-blue text-white py-20">
         <div class="container mx-auto text-center">
             <h1 class="text-4xl font-bold mb-4">Finanzas precisas. Tranquilidad total.</h1>
-            <p class="mb-8">MisContadores ayuda a propietarios de pequeñas empresas como tú a ahorrar tiempo y dinero en la contabilidad e impuestos proporcionando expertos dedicados y software financiero fácil de usar, para que puedas centrarte en hacer crecer tu negocio.</p>
+            <p class="mb-8">misContadores ayuda a propietarios de pequeñas empresas como tú a ahorrar tiempo y dinero en la contabilidad e impuestos proporcionando expertos dedicados y software financiero fácil de usar, para que puedas centrarte en hacer crecer tu negocio.</p>
             <div class="flex justify-center space-x-4">
                 <button class="bg-blue-500 text-white px-6 py-2 rounded">Empezar</button>
                 <button class="bg-transparent text-white border border-white px-6 py-2 rounded">Agendar una Demo</button>
@@ -22,36 +68,28 @@
     <!-- Trusted By Section -->
     <section class="bg-white py-16">
         <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-8">Confiado por más de 25,000 propietarios de pequeñas empresas en EE.UU.</h2>
+            <h2 class="text-2xl font-bold mb-8">Servicio confiable para pequeñas y medianas empresas en EE.UU.</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                    <p class="mb-4">“MisContadores ayuda a mantener mis finanzas claras. Sin más adivinanzas, sin más tropiezos en hojas de cálculo de Excel.”</p>
-                    <div class="flex items-center space-x-4">
-                        <img src="https://via.placeholder.com/50" alt="Profile Picture" class="rounded-full w-12 h-12">
-                        <div>
-                            <p class="font-bold">Justin Metros</p>
-                            <p class="text-gray-600">Propietario, Radiator</p>
-                        </div>
+                    <p class="mb-4">“El equipo de misContadores ha simplificado mi contabilidad. Puedo concentrarme en hacer crecer mi negocio sin preocupaciones financieras.”</p>
+                    <div>
+                        <p class="font-bold">Patricio S.</p>
+                        <p class="text-gray-600">Propietario, Single Member Limited Liability Company (LLC) en California</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                    <p class="mb-4">“El equipo de misContadores ha simplificado mi contabilidad. Puedo concentrarme en hacer crecer mi negocio sin preocupaciones financieras.”</p>
+                    <div>
+                        <p class="font-bold">Miguel C.</p>
+                        <p class="text-gray-600">Fundador, S-Corporation en California</p>
                     </div>
                 </div>
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                    <p class="mb-4">“Ahora que MisContadores tiene un servicio de solución fiscal, son una 'ventanilla única' para que las pequeñas empresas gestionen sus libros e impuestos.”</p>
-                    <div class="flex items-center space-x-4">
-                        <img src="https://via.placeholder.com/50" alt="Profile Picture" class="rounded-full w-12 h-12">
-                        <div>
-                            <p class="font-bold">Albert Lamont</p>
-                            <p class="text-gray-600">CEO, Sweatcast</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                    <p class="mb-4">“Como propietario de una pequeña empresa, me siento mejor sabiendo que los profesionales están manejando mis libros para poder dedicar más tiempo a hacer crecer mi negocio en lugar de monitorear centavos.”</p>
-                    <div class="flex items-center space-x-4">
-                        <img src="https://via.placeholder.com/50" alt="Profile Picture" class="rounded-full w-12 h-12">
-                        <div>
-                            <p class="font-bold">Laura Simms</p>
-                            <p class="text-gray-600">Experta en Cambio de Carrera</p>
-                        </div>
+                    <p class="mb-4">“Desde que empecé a trabajar con misContadores, la contabilidad de mi empresa es un aspecto del negocio del que ya no tengo que preocuparme”</p>
+                    <div>
+                        <p class="font-bold">Samuel U.</p>
+                        <p class="text-gray-600">CEO, C-Corporation en Delaware</p>
                     </div>
                 </div>
             </div>
@@ -61,10 +99,10 @@
     <!-- New Section -->
     <section class="bg-white py-16">
         <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-8">¿Qué obtienes con MisContadores?</h2>
-            <p class="mb-12">Personas reales. Libros perfectos. Tu equipo de expertos en contabilidad revisa tus transacciones y prepara estados financieros cada mes.</p>
+            <h2 class="text-2xl font-bold mb-8">¿Qué obtienes con misContadores?</h2>
+            <p class="mb-12">Personas reales. Libros organizados. Nuestro equipo de expertos en contabilidad revisa tus transacciones y prepara tus estados financieros mensualmente.</p>
             <div class="flex justify-center mb-8">
-                <button class="bg-blue-500 text-white px-6 py-2 rounded">Ver cómo funciona MisContadores</button>
+                <button class="bg-blue-500 text-white px-6 py-2 rounded">Ver cómo funciona misContadores</button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg flex items-center">
@@ -73,7 +111,7 @@
                     </div>
                     <div class="w-2/3 ml-4">
                         <h3 class="text-xl font-bold mb-2">Soporte de expertos uno a uno</h3>
-                        <p class="mb-4">MisContadores te ofrece un equipo de contabilidad dedicado para que tengas una línea directa con tus propios expertos en escritorio o móvil. El soporte profesional está a solo unos pocos deslizamientos, toques o clics.</p>
+                        <p class="mb-4">misContadores te ofrece un equipo de contabilidad dedicado para que tengas una línea directa con tus propios expertos en escritorio o móvil. El soporte profesional está a solo unos pocos deslizamientos, toques o clics.</p>
                         <button class="bg-blue-500 text-white px-4 py-2 rounded">Aprender más</button>
                     </div>
                 </div>
@@ -83,7 +121,7 @@
                     </div>
                     <div class="w-2/3 ml-4">
                         <h3 class="text-xl font-bold mb-2">Informes financieros potentes</h3>
-                        <p class="mb-4">La plataforma de MisContadores te ofrece estados financieros mensuales y resúmenes de gastos para mantenerte en control de tu dinero. Los informes visuales te ayudan a ver el panorama general y te brindan conocimientos procesables para ayudarte a hacer crecer tu negocio.</p>
+                        <p class="mb-4">La plataforma de misContadores te ofrece estados financieros mensuales y resúmenes de gastos para mantenerte en control de tu dinero. Los informes visuales te ayudan a ver el panorama general y te brindan conocimientos procesables para ayudarte a hacer crecer tu negocio.</p>
                         <button class="bg-blue-500 text-white px-4 py-2 rounded">Aprender más</button>
                     </div>
                 </div>
@@ -111,7 +149,7 @@
                     </div>
                     <div class="w-2/3 ml-4">
                         <h3 class="text-xl font-bold mb-2">Temporada de impuestos sin estrés</h3>
-                        <p class="mb-4">Un paquete de fin de año con todo lo que necesitas para presentar tus impuestos viene de serie con MisContadores. Mejora tu plan y quita aún más tareas de tu lista de pendientes. Con Premium, obtienes preparación de impuestos experta, presentación y soporte fiscal durante todo el año.</p>
+                        <p class="mb-4">Un paquete de fin de año con todo lo que necesitas para presentar tus impuestos viene de serie con misContadores. Mejora tu plan y quita aún más tareas de tu lista de pendientes. Con Premium, obtienes preparación de impuestos experta, presentación y soporte fiscal durante todo el año.</p>
                         <button class="bg-blue-500 text-white px-4 py-2 rounded">Aprender más</button>
                     </div>
                 </div>
@@ -157,8 +195,8 @@
     <!-- Call to Action Section -->
     <section class="bg-blue-900 text-white py-16">
         <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-4">Únete a miles de propietarios de pequeñas empresas que confían en MisContadores</h2>
-            <p class="mb-8">Descubre cómo es dirigir un negocio con MisContadores a tu lado. Pruébanos gratis: haremos un mes de contabilidad y prepararemos un conjunto de estados financieros para que los conserves.</p>
+            <h2 class="text-2xl font-bold mb-4">Únete a miles de propietarios de pequeñas empresas que confían en misContadores</h2>
+            <p class="mb-8">Descubre cómo es dirigir un negocio con misContadores a tu lado. Pruébanos gratis: haremos un mes de contabilidad y prepararemos un conjunto de estados financieros para que los conserves.</p>
             <div class="flex justify-center space-x-4">
                 <button class="bg-blue-500 text-white px-6 py-2 rounded">Empezar</button>
                 <button class="bg-transparent text-white border border-white px-6 py-2 rounded">Agendar una Demo</button>
