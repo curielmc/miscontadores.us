@@ -8,7 +8,6 @@
 </head>
 <style>
     body {
-           /* font-family: 'Roboto', sans-serif; */
            margin: 0;
            padding: 0;
            box-sizing: border-box;
@@ -86,6 +85,41 @@
            font-size: 12px;
            color: #888;
        }  
+       /* Modal styles */
+       .modal {
+           display: none;
+           position: fixed;
+           z-index: 50;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           overflow: auto;
+           background-color: rgb(0, 0, 0);
+           background-color: rgba(0, 0, 0, 0.4);
+           justify-content: center;
+           align-items: center;
+       }
+       .modal-content {
+           background-color: white;
+           padding: 20px;
+           border: 1px solid #888;
+           width: 80%;
+           max-width: 500px;
+           margin: auto;
+       }
+       .close {
+           color: #aaa;
+           float: right;
+           font-size: 28px;
+           font-weight: bold;
+       }
+       .close:hover,
+       .close:focus {
+           color: black;
+           text-decoration: none;
+           cursor: pointer;
+       }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 <body class="bg-gray-100">
@@ -97,7 +131,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Contabilidad -->
             <div class="bg-green-100 p-6 rounded-lg shadow-lg">
-              <p class="text-3xl mb-4 font-bold text-center">$3 por transacción</p>
+                <p class="text-3xl mb-4 font-bold text-center">$3 por transacción</p>
                 <h2 class="text-2xl font-bold mb-4 text-center">Contabilidad Esencial</h2>
                 <br>
                 <p>Nos encargamos de categorizar todas las actividades de gastos e ingresos y de conciliar las cuentas de forma mensual o trimestral. También preparamos los estados de pérdidas y ganancias y los estados de balance general.</p>
@@ -127,62 +161,74 @@
                     </li>
                 </ul>
                 <div class="flex justify-center space-x-4">
-                    <a href="contact.html">
-                        <button class="bg-blue-500 text-white px-6 py-2 rounded">Contáctanos</button>
-                    </a>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalContabilidad')">Más detalles</button>
+                </div>
+            </div>
+
+            <!-- Modal for Contabilidad -->
+            <div id="modalContabilidad" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modalContabilidad')">&times;</span>
+                    <h2 class="text-xl font-bold mb-4">Contabilidad Esencial</h2>
+                    <p>Aquí puedes añadir más detalles sobre el servicio de contabilidad esencial.</p>
                 </div>
             </div>
 
             <!-- Contabilidad y Consultoría Estratégica -->
-<!-- Contabilidad y Consultoría Estratégica -->
-<div class="bg-blue-100 p-6 rounded-lg shadow-lg">
-    <p class="text-3xl mb-4 font-bold text-center">$6 por transacción</p>
-    <h2 class="text-2xl font-bold mb-4 text-center">Contabilidad + Fractional CFO</h2>
-    <br>
-    <p>Incluye todo lo de Contabilidad Esencial más acceso a un CFO fraccional, quien es un miembro senior de nuestro equipo. Este experto puede ayudarte con servicios más avanzados como previsión, análisis de gastos, presentaciones y estrategia.</p>
-    <ul class="mt-4 mb-6 space-y-4">
-        <li class="flex items-start">
-            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <div>
-                <strong>Todo en el plan de Contabilidad Esencial, más:</strong>
+            <div class="bg-blue-100 p-6 rounded-lg shadow-lg">
+                <p class="text-3xl mb-4 font-bold text-center">$6 por transacción</p>
+                <h2 class="text-2xl font-bold mb-4 text-center">Contabilidad + Fractional CFO</h2>
+                <br>
+                <p>Incluye todo lo de Contabilidad Esencial más acceso a un CFO fraccional, quien es un miembro senior de nuestro equipo. Este experto puede ayudarte con servicios más avanzados como previsión, análisis de gastos, presentaciones y estrategia.</p>
+                <ul class="mt-4 mb-6 space-y-4">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <strong>Todo en el plan de Contabilidad Esencial, más:</strong>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <strong>Análisis Financiero Detallado:</strong> Análisis financieros detallados para decisiones informadas y crecimiento del negocio.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <strong>Planificación y Estrategia Fiscal:</strong> Desarrollo de estrategias fiscales para minimizar impuestos y optimizar finanzas.
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div>
+                            <strong>Gestión de Flujos de Efectivo:</strong> Gestión de flujos de efectivo para mantener una liquidez saludable.
+                        </div>
+                    </li>
+                </ul>
+                <div class="flex justify-center space-x-4">
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalCFO')">Más detalles</button>
+                </div>
             </div>
-        </li>
-        <li class="flex items-start">
-            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <div>
-                <strong>Análisis Financiero Detallado:</strong> Análisis financieros detallados para decisiones informadas y crecimiento del negocio.
-            </div>
-        </li>
-        <li class="flex items-start">
-            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <div>
-                <strong>Planificación y Estrategia Fiscal:</strong> Desarrollo de estrategias fiscales para minimizar impuestos y optimizar finanzas.
-            </div>
-        </li>
-        <li class="flex items-start">
-            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <div>
-                <strong>Gestión de Flujos de Efectivo:</strong> Gestión de flujos de efectivo para mantener una liquidez saludable.
-            </div>
-        </li>
-    </ul>
-    <div class="flex justify-center space-x-4">
-        <a href="contact.html">
-            <button class="bg-blue-500 text-white px-6 py-2 rounded">Contáctanos</button>
-        </a>
-    </div>
-</div>
 
-
+            <!-- Modal for CFO -->
+            <div id="modalCFO" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modalCFO')">&times;</span>
+                    <h2 class="text-xl font-bold mb-4">Contabilidad + Fractional CFO</h2>
+                    <p>Aquí puedes añadir más detalles sobre el servicio de Contabilidad + Fractional CFO.</p>
+                </div>
+            </div>
 
             <!-- Proyectos Personalizados -->
             <div class="bg-red-100 p-6 rounded-lg shadow-lg">
-              <p class="text-3xl mb-4 font-bold text-center">Tarifa fija o por horas</p>
+                <p class="text-3xl mb-4 font-bold text-center">Tarifa fija o por horas</p>
                 <h2 class="text-2xl font-bold mb-4 text-center">Proyectos Personalizados</h2>
                 <br>
                 <p><strong>¿Necesitas algo más específico?</strong> Esta opción es ideal para trabajos financieros personalizados, como contabilidad atrasada, organización de recibos, informes financieros específicos, auditorías y asesoramiento fiscal.</p>
                 <br>    
-                <li class="flex items-center mb-3">
+                <ul class="mb-6">
+                    <li class="flex items-center mb-3">
                         <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         <div>
                             Los contadores y tenedores de libros oscilan entre <strong>$25-$50/hr</strong>
@@ -198,9 +244,16 @@
                     </li>
                 </ul>
                 <div class="flex justify-center space-x-4">
-                    <a href="contact.html">
-                        <button class="bg-blue-500 text-white px-6 py-2 rounded">Contáctanos</button>
-                    </a>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalProyectos')">Más detalles</button>
+                </div>
+            </div>
+
+            <!-- Modal for Proyectos Personalizados -->
+            <div id="modalProyectos" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('modalProyectos')">&times;</span>
+                    <h2 class="text-xl font-bold mb-4">Proyectos Personalizados</h2>
+                    <p>Aquí puedes añadir más detalles sobre el servicio de Proyectos Personalizados.</p>
                 </div>
             </div>
         </div>
@@ -214,6 +267,24 @@
             document.getElementById('footer-container').innerHTML = await footer.text();
         }
         includeHTML();
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
