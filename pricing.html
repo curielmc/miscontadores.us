@@ -86,7 +86,8 @@
            color: #888;
        }  
        /* Modal styles */
-       .modal {
+    
+    .modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -95,7 +96,7 @@
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    }
 
 .modal-content {
     background-color: #fefefe;
@@ -189,14 +190,15 @@ th {
                     </li>
                 </ul>
                 <div class="flex justify-center space-x-4">
-                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalContabilidad')">Ejemplos</button>
+                    <button id="openModalButton" class="bg-blue-500 text-white px-6 py-2 rounded" data-target="modalContabilidad">Ejemplos de precios por tipo de empresa</button>
+                    <!-- Ensure your modal ID matches in the JavaScript -->
                 </div>
             </div>
 
             <!-- Modal for Contabilidad -->
            <!-- Modal for Contabilidad -->
-<div id="modalContabilidad" class="modal">
-    <div class="modal-content">
+    <div id="modalContabilidad" class="modal" style="display: none;">
+        <div class="modal-content">
         <span class="close" onclick="closeModal('modalContabilidad')">&times;</span>
         <h2 class="text-xl font-bold mb-4">Ejemplos de Contabilidad Esencial</h2>
         <p>La tabla a continuación muestra el número común de transacciones que una empresa podría tener en diversas etapas de su desarrollo. Esto es solo para fines ilustrativos y para brindarle una idea del precio; su caso puede ser diferente</p>
@@ -312,15 +314,19 @@ th {
                         Compromiso con la entrega puntual de resultados y cumplimiento de plazos acordados.
                     </li>
                 </ul>
-                <div class="flex justify-center space-x-4">
+                <!-- <div class="flex justify-center space-x-4">
                     <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalProyectos')">Ejemplos</button>
+                </div> -->
+                <div class="flex justify-center space-x-4">
+                    <button id="openModalButton" class="bg-blue-500 text-white px-6 py-2 rounded" data-target="modalProyectos">Ejemplos de precios por proyecto</button>
                 </div>
+            </div>
             </div>
 
             <!-- Modal for Proyectos Personalizados -->
-            <div id="modalProyectos" class="modal">
+            <div id="modalProyectos" class="modal" style="display: none;">
                 <div class="modal-content">
-                    <span class="close" onclick="closeModal('modalProyectos')">&times;</span>
+                <span class="close" onclick="closeModal('modalProyectos')">&times;</span>
                     <h2 class="text-xl font-bold mb-4">Proyectos Personalizados</h2>
                     <p>La tabla a continuación detalla los costos estimados por servicio, que varían según la complejidad y detalle del proyecto. Esto es solo para fines ilustrativos y para brindarle una idea del precio; su caso puede ser diferente.</p>
                     <br>
@@ -375,25 +381,53 @@ th {
             document.getElementById('navbar-container').innerHTML = await navbar.text();
             document.getElementById('footer-container').innerHTML = await footer.text();
         }
-        includeHTML();
-
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    // Function to open modals
+    function openModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'flex';
         }
+    }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
+    // Function to close modals
+    function closeModal(modalId) {
+        var modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'none';
         }
+    }
 
-        window.onclick = function(event) {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        }
+    // Attach event listeners to all open modal buttons
+    document.querySelectorAll('[id^="openModalButton"]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var modalId = button.getAttribute('data-target'); // Use data-target attribute to identify which modal to open
+            openModal(modalId);
+        });
+    });
+
+    // Attach event listeners to all close buttons within modals
+    document.querySelectorAll('.close').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var modal = btn.closest('.modal');
+            if (modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+
+    // Close modals by clicking outside them
+    window.addEventListener('click', function(event) {
+        document.querySelectorAll('.modal').forEach(function(modal) {
+            if (event.target == modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+});
+
+
     </script>
 </body>
 </html>
