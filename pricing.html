@@ -153,7 +153,7 @@ th {
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 <body class="bg-gray-100">
     <div id="navbar-container"></div>
-    <div class="container mx-auto p-8">
+    <div class="container mx-auto p-8"></div>
         <h1 class="text-4xl font-bold text-center mb-6">Precios simples y directos para todo lo que tu negocio necesita.</h1>
         <p class="text-center mb-12">Sin contratos a largo plazo ni cargos por cancelación, con personal que habla español para atender tus necesidades.</p>
 
@@ -375,59 +375,64 @@ th {
     </div>
     <div id="footer-container"></div>
     <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            try {
+                await includeHTML();
+                attachEventListeners();
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        });
+    
         async function includeHTML() {
-            let navbar = await fetch('navbar.html');
-            let footer = await fetch('footer.html');
-            document.getElementById('navbar-container').innerHTML = await navbar.text();
-            document.getElementById('footer-container').innerHTML = await footer.text();
+            const navbarResponse = await fetch('navbar.html');
+            if (!navbarResponse.ok) throw new Error('Failed to load navbar');
+            document.getElementById('navbar-container').innerHTML = await navbarResponse.text();
+    
+            const footerResponse = await fetch('footer.html');
+            if (!footerResponse.ok) throw new Error('Failed to load footer');
+            document.getElementById('footer-container').innerHTML = await footerResponse.text();
         }
-        
-        document.addEventListener("DOMContentLoaded", function() {
-    // Function to open modals
-    function openModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'flex';
-        }
-    }
-
-    // Function to close modals
-    function closeModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    // Attach event listeners to all open modal buttons
-    document.querySelectorAll('[id^="openModalButton"]').forEach(function(button) {
-        button.addEventListener('click', function() {
-            var modalId = button.getAttribute('data-target'); // Use data-target attribute to identify which modal to open
-            openModal(modalId);
-        });
-    });
-
-    // Attach event listeners to all close buttons within modals
-    document.querySelectorAll('.close').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var modal = btn.closest('.modal');
-            if (modal) {
-                closeModal(modal.id);
+    
+        function attachEventListeners() {
+            // Function to open modals
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.style.display = 'flex';
             }
-        });
-    });
-
-    // Close modals by clicking outside them
-    window.addEventListener('click', function(event) {
-        document.querySelectorAll('.modal').forEach(function(modal) {
-            if (event.target == modal) {
-                closeModal(modal.id);
+    
+            // Function to close modals
+            function closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (modal) modal.style.display = 'none';
             }
-        });
-    });
-});
-
-
+    
+            // Attach event listeners to all open modal buttons
+            document.querySelectorAll('[id^="openModalButton"]').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const modalId = button.getAttribute('data-target');
+                    openModal(modalId);
+                });
+            });
+    
+            // Attach event listeners to all close buttons within modals
+            document.querySelectorAll('.close').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const modal = btn.closest('.modal');
+                    closeModal(modal.id);
+                });
+            });
+    
+            // Close modals by clicking outside them
+            window.addEventListener('click', function(event) {
+                document.querySelectorAll('.modal').forEach(function(modal) {
+                    if (event.target == modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
+        }
     </script>
+    
 </body>
 </html>
