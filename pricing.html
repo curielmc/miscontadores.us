@@ -87,39 +87,67 @@
        }  
        /* Modal styles */
        .modal {
-           display: none;
-           position: fixed;
-           z-index: 50;
-           left: 0;
-           top: 0;
-           width: 100%;
-           height: 100%;
-           overflow: auto;
-           background-color: rgb(0, 0, 0);
-           background-color: rgba(0, 0, 0, 0.4);
-           justify-content: center;
-           align-items: center;
-       }
-       .modal-content {
-           background-color: white;
-           padding: 20px;
-           border: 1px solid #888;
-           width: 80%;
-           max-width: 500px;
-           margin: auto;
-       }
-       .close {
-           color: #aaa;
-           float: right;
-           font-size: 28px;
-           font-weight: bold;
-       }
-       .close:hover,
-       .close:focus {
-           color: black;
-           text-decoration: none;
-           cursor: pointer;
-       }
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 1200px; /* Maximum width */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Optional: Styles for Large Screen */
+@media (min-width: 768px) {
+    .modal-content {
+        width: 70%; /* Smaller percentage on larger screens */
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #336699;
+    color: #ffffff;
+    }
+
+td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    
+}
+
+th {
+    background-color: #336699;
+    color: #ffffff;
+}
+
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 <body class="bg-gray-100">
@@ -128,7 +156,7 @@
         <h1 class="text-4xl font-bold text-center mb-6">Precios simples y directos para todo lo que tu negocio necesita.</h1>
         <p class="text-center mb-12">Sin contratos a largo plazo ni cargos por cancelación, con personal que habla español para atender tus necesidades.</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Contabilidad -->
             <div class="bg-green-100 p-6 rounded-lg shadow-lg">
                 <p class="text-3xl mb-4 font-bold text-center">$3 por transacción</p>
@@ -161,21 +189,62 @@
                     </li>
                 </ul>
                 <div class="flex justify-center space-x-4">
-                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalContabilidad')">Más detalles</button>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalContabilidad')">Ejemplos</button>
                 </div>
             </div>
 
             <!-- Modal for Contabilidad -->
-            <div id="modalContabilidad" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal('modalContabilidad')">&times;</span>
-                    <h2 class="text-xl font-bold mb-4">Contabilidad Esencial</h2>
-                    <p>Aquí puedes añadir más detalles sobre el servicio de contabilidad esencial.</p>
-                </div>
-            </div>
+           <!-- Modal for Contabilidad -->
+<div id="modalContabilidad" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modalContabilidad')">&times;</span>
+        <h2 class="text-xl font-bold mb-4">Ejemplos de Contabilidad Esencial</h2>
+        <p>La tabla a continuación muestra el número común de transacciones que una empresa podría tener en diversas etapas de su desarrollo. Esto es solo para fines ilustrativos y para brindarle una idea del precio; su caso puede ser diferente</p>
+        <br>
+        <!-- Tabla de Precios -->
+        <table class="min-w-full divide-y divide-gray-200 mt-4">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                        Tipo de Empresa
+                    </th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                        Transacciones por Mes
+                    </th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                        Precio por Mes
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap">Startup</td>
+                    <td class="px-6 py-4 whitespace-nowrap">10-30</td>
+                    <td class="px-6 py-4 whitespace-nowrap">$30 - $90</td>
+                </tr>
+                <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap">Pequeña</td>
+                    <td class="px-6 py-4 whitespace-nowrap">50-100</td>
+                    <td class="px-6 py-4 whitespace-nowrap">$150 - $300</td>
+                </tr>
+                <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap">Mediana</td>
+                    <td class="px-6 py-4 whitespace-nowrap">125-200</td>
+                    <td class="px-6 py-4 whitespace-nowrap">$375 - $600</td>
+                </tr>
+                <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                    <td class="px-6 py-4 whitespace-nowrap">Grande</td>
+                    <td class="px-6 py-4 whitespace-nowrap">300+</td>
+                    <td class="px-6 py-4 whitespace-nowrap">$900+</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
             <!-- Contabilidad y Consultoría Estratégica -->
-            <div class="bg-blue-100 p-6 rounded-lg shadow-lg">
+            <!-- <div class="bg-blue-100 p-6 rounded-lg shadow-lg">
                 <p class="text-3xl mb-4 font-bold text-center">$6 por transacción</p>
                 <h2 class="text-2xl font-bold mb-4 text-center">Contabilidad + Fractional CFO</h2>
                 <br>
@@ -209,16 +278,16 @@
                 <div class="flex justify-center space-x-4">
                     <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalCFO')">Más detalles</button>
                 </div>
-            </div>
+            </div> -->
 
-            <!-- Modal for CFO -->
+            <!-- Modal for CFO
             <div id="modalCFO" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('modalCFO')">&times;</span>
                     <h2 class="text-xl font-bold mb-4">Contabilidad + Fractional CFO</h2>
                     <p>Aquí puedes añadir más detalles sobre el servicio de Contabilidad + Fractional CFO.</p>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Proyectos Personalizados -->
             <div class="bg-red-100 p-6 rounded-lg shadow-lg">
@@ -244,7 +313,7 @@
                     </li>
                 </ul>
                 <div class="flex justify-center space-x-4">
-                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalProyectos')">Más detalles</button>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded" onclick="openModal('modalProyectos')">Ejemplos</button>
                 </div>
             </div>
 
@@ -253,9 +322,49 @@
                 <div class="modal-content">
                     <span class="close" onclick="closeModal('modalProyectos')">&times;</span>
                     <h2 class="text-xl font-bold mb-4">Proyectos Personalizados</h2>
-                    <p>Aquí puedes añadir más detalles sobre el servicio de Proyectos Personalizados.</p>
+                    <p>La tabla a continuación detalla los costos estimados por servicio, que varían según la complejidad y detalle del proyecto. Esto es solo para fines ilustrativos y para brindarle una idea del precio; su caso puede ser diferente.</p>
+                    <br>
+                    <!-- Tabla de Precios por Horas -->
+                    <table class="min-w-full divide-y divide-gray-200 mt-4">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                                    Detalle del Servicio
+                                </th>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                                    Rango de Horas
+                                </th>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-white-500 uppercase tracking-wider">
+                                    Costo
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap">Contabilidad Atrasada</td>
+                                <td class="px-6 py-4 whitespace-nowrap">10 - 40</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$500 - $2,000</td>
+                            </tr>
+                            <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap">Organización de Recibos</td>
+                                <td class="px-6 py-4 whitespace-nowrap">15 - 20</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$375 - $500</td>
+                            </tr>
+                            <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap">Informes Financieros Específicos</td>
+                                <td class="px-6 py-4 whitespace-nowrap">5 - 10</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$125 - $250</td>
+                            </tr>
+                            <tr class="bg-gray-100 odd:bg-white even:bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap">Auditorías y Asesoramiento Fiscal</td>
+                                <td class="px-6 py-4 whitespace-nowrap">50 - 100</td>
+                                <td class="px-6 py-4 whitespace-nowrap">$3,750 - $5,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            
         </div>
     </div>
     <div id="footer-container"></div>
