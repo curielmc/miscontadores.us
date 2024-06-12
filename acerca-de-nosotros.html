@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .bg-custom-blue {
+        background-color: #336699;
+    }
+    .logo {
+        font-weight: bold;
+    }
+    .navbar {
+        display: flex;
+        justify-content: flex-end;
+        background-color: #f8f8f8;
+        padding: 10px 20px;
+    }
+    .navbar a {
+        color: #003366;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 18px;
+    }
+    .content {
+        background-color: #e2e8f0;
+        text-align: center;
+        padding: 40px 0;
+        font-size: 36px;
+    }
+    .tagline {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 24px;
+    }
+    .footer {
+        background-color: #ffffff;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .footer .left, .footer .center, .footer .right {
+        flex: 1;
+        padding: 20px;
+    }
+    .footer a {
+        color: #003366;
+        text-decoration: none;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .footer a:hover {
+        text-decoration: underline;
+    }
+    .footer .social {
+        margin-top: 10px;
+    }
+    .footer .social img {
+        max-width: 20px;
+        margin-right: 10px;
+    }
+    .footer .bottom {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid #e2e8f0;
+        font-size: 12px;
+        color: #888;
+    }
+</style>
+<body class="bg-gray-100">
+    <div id="navbar-container"></div>
+    <div class="container mx-auto p-8">
+        <!-- Content here -->
+        <section class="text-center mt-10 mb-10">
+            <h1 class="text-3xl font-bold">Sobre Nosotros</h1>
+            <p class="mt-4 text-lg">En [Nombre de tu Empresa], creemos que manejar las finanzas de tu negocio debe ser sencillo. Desde nuestro inicio, nuestro objetivo ha sido transformar la gestión financiera para pequeñas empresas y emprendedores.</p>
+        </section>
+
+        <section class="mt-10 mb-10">
+            <h2 class="text-2xl font-bold text-center">Nuestra Misión</h2>
+            <p class="text-center mt-4">Simplificar las tareas financieras complejas y empoderar a los emprendedores y propietarios de pequeñas empresas para tomar control de su salud financiera.</p>
+        </section>
+
+        <section class="mt-10 mb-10">
+            <h2 class="text-2xl font-bold text-center">Lo Que Hacemos</h2>
+            <p class="text-center mt-4">Innovamos y simplificamos todo lo que hacemos, desde la contabilidad diaria hasta la planificación financiera estratégica.</p>
+        </section>
+
+        <section class="mt-10 mb-10">
+            <h2 class="text-2xl font-bold text-center">Por Qué Elegirnos</h2>
+            <ul class="list-disc text-center mt-4 mx-auto" style="width: 50%;">
+                <li>Guía experta y personalizada.</li>
+                <li>Tecnología de vanguardia.</li>
+                <li>Soluciones personalizadas a tus necesidades.</li>
+            </ul>
+        </section>
+    </div>
+    <div id="footer-container"></div>
+    <script>
+        // Script for dynamic content loading
+        async function includeHTML() {
+            let navbar = await fetch('navbar.html');
+            let footer = await fetch('footer.html');
+            document.getElementById('navbar-container').innerHTML = await navbar.text();
+            document.getElementById('footer-container').innerHTML = await footer.text();
+        }
+        includeHTML();
+    </script>
+</body>
+</html>
